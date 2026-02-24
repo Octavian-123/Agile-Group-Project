@@ -1,5 +1,4 @@
 
-import tkinter as tk
 
 def opt1():
     print("\nThis is option 1")
@@ -18,12 +17,13 @@ def readLogins():
 
         for line in contents:
             fields = line.split(",")
-            fields[1] = fields[1].rstrip()
+            fields[0] = fields[0].strip()
+            fields[1] = fields[1].strip()
             newContents.append(fields)
 
         return(newContents)
 
-def login():
+def login(logins):
     while True:
         askUsername = str(input("Input username: "))
         askPassword = str(input("Input password: "))
@@ -43,7 +43,7 @@ options = {
 
 logins = readLogins()
 
-if login():
+if login(logins):
     
     while True:
         try:
